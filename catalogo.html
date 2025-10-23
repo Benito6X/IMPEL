@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — IMPEL Panamá</title>
+  <meta name="description" content="Catálogo de alternadores, arranques, bobinas, módulos y sensores.">
+  <link rel="icon" href="assets/logo.png"><link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-has-preloader="1" class="theme-light">
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger" onclick="toggleDrawer()" aria-label="Abrir menú">☰</button>
+      <a href="index.html" class="brand"><img loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/product-fallback.jpg';" src="assets/logo.png" alt="Logo IMPEL Panamá"></a>
+      <nav class="nav"><a href="index.html#inicio">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#faq">FAQ</a><a href="contacto.html">Contacto</a></nav>
+      <a class="btn btn-primary nav-cta js-wa" target="_blank" rel="noopener">Cotizar</a>
+          <button class="btn btn-outline theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">Tema</button>
+    </div>
+  </header>
+  <div id="preloader"><div class="loader"><div class="spinner"></div><div class="bar"><span></span></div><div class="label">Cargando…</div></div></div>
+  <div id="progress"></div>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="title reveal">Catálogo</h1>
+      <p class="lead reveal">Busque por categoría, nombre o referencia. Para precio y disponibilidad use “Cotizar”.</p>
+      <div class="toolbar reveal"><input id="q" class="input" type="search" placeholder="Buscar por nombre o referencia" aria-label="Buscar"><select id="cat" class="select" aria-label="Categoría"><option>Todas</option><option>Alternadores</option><option>Arranques</option><option>Bobinas</option><option>Módulos</option><option>Sensores</option><option>Partes internas</option><option>Bendix</option></select><select id="brand" class="select" aria-label="Marca"><option value="Todas">Todas las marcas</option><option>Toyota</option><option>Hyundai</option><option>Kia</option><option>Nissan</option><option>Chevrolet</option><option>GM</option><option>Denso</option><option>Genérico</option></select><select id="stock" class="select" aria-label="Disponibilidad"><option value="Todas">Todo</option><option value="stock">En stock</option><option value="bajo_pedido">Bajo pedido</option></select><select id="order" class="select" aria-label="Orden"><option value="az">A → Z</option><option value="za">Z → A</option></select><span id="result-count" class="note" style="align-self:center"></span>
+        <input id="q" class="input" type="search" placeholder="Buscar por nombre o referencia" aria-label="Buscar">
+        <select id="cat" class="select" aria-label="Categoría"><option>Todas</option><option>Alternadores</option><option>Arranques</option><option>Bobinas</option><option>Módulos</option><option>Sensores</option><option>Partes internas</option><option>Bendix</option></select>
+        <select id="order" class="select" aria-label="Orden"><option value="az">A → Z</option><option value="za">Z → A</option></select>
+      </div>
+      <div id="active-chips" class="reveal" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0"></div><div id="product-grid" class="grid" aria-live="polite"></div><div id="pager" class="reveal" style="display:flex;gap:8px;justify-content:center;margin-top:14px"></div>
+    </div>
+
+    <dialog id="modal" style="border:1px solid var(--border);border-radius:18px;background:#fff;color:var(--text);padding:0;max-width:800px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+        <img loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/product-fallback.jpg';" id="m-img" alt="" style="border-top-left-radius:18px;border-bottom-left-radius:18px;width:100%;height:100%;object-fit:cover">
+        <div style="padding:22px"><table style="width:100%;font-size:14px;margin:4px 0 10px;border-collapse:separate;border-spacing:0 6px"><tr><td><strong>Marca</strong></td><td id="m-brand"></td></tr><tr><td><strong>Garantía</strong></td><td><span id="m-war"></span> meses</td></tr><tr><td><strong>Disponibilidad</strong></td><td id="m-stock"></td></tr><tr><td><strong>Compatibilidad</strong></td><td id="m-fit"></td></tr><tr><td><strong>OEM/Ref</strong></td><td id="m-oem"></td></tr></table>
+          <h3 id="m-title" style="margin:0"></h3>
+          <p class="note" style="margin:6px 0 12px">Ref. <span id="m-ref"></span> — <span id="m-cat"></span></p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-outline" id="m-add">Agregar a lista</button>
+            <a id="m-wa" class="btn btn-primary" target="_blank" rel="noopener">Cotizar</a>
+            <button class="btn btn-outline" onclick="closeModal()">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  \1<p>© <span id="year"></span> IMPEL Panamá · Todos los derechos reservados</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

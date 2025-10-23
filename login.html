@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión — IMPEL Panamá</title>
+  <link rel="icon" href="assets/logo.png"><link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger" onclick="toggleDrawer()" aria-label="Abrir menú">☰</button>
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Logo IMPEL Panamá"></a>
+      <nav class="nav"><a href="index.html#inicio">Inicio</a><a href="catalogo.html">Catálogo</a><a href="contacto.html">Contacto</a></nav>
+      <a class="btn btn-primary nav-cta js-wa" target="_blank" rel="noopener">Cotizar</a>
+      <button class="btn btn-outline theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">Tema</button>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width:560px">
+      <h1 class="title">Iniciar sesión</h1>
+      <form id="login-form" class="form contact-card" style="padding:20px">
+        <input class="input input-full" type="email" name="email" placeholder="Correo" required>
+        <input class="input input-full" type="password" name="password" placeholder="Contraseña" required>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" type="submit">Entrar</button>
+          <a class="btn btn-outline" href="registro.html">Crear cuenta</a>
+        </div>
+        <p id="login-status" class="note"></p>
+      </form>
+    </div>
+  </main>
+
+  \1<p>© <span id="year"></span> IMPEL Panamá</p></div></footer>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('login-form'); const status = document.getElementById('login-status');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      try{ await loginUser(data.email, data.password); status.textContent='Bienvenido. Redirigiendo...'; setTimeout(()=>location.href='index.html',700); }
+      catch(err){ status.textContent=err.message; status.style.color='#b42318'; }
+    });
+  </script>
+</body>
+</html>

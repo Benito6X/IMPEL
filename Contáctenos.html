@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — IMPEL Panamá</title>
+  <meta name="description" content="Contacto, ubicación y asistente de IMPEL Panamá.">
+  <link rel="icon" href="assets/logo.png"><link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body data-has-preloader="1" class="theme-light">
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger" onclick="toggleDrawer()" aria-label="Abrir menú">☰</button>
+      <a href="index.html" class="brand"><img loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/product-fallback.jpg';" src="assets/logo.png" alt="Logo IMPEL Panamá"></a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html#inicio">
+  <span class="material-symbols-outlined">home</span> Inicio
+</a>
+          
+        </a>
+        <a href="catalogo.html">
+  <span class="material-symbols-outlined">inventory_2</span> Catálogo
+</a>
+
+<a href="servicios.html">
+  <span class="material-symbols-outlined">build</span> Servicios
+</a>
+
+<a href="#soporte" class="js-open-chat">
+  <span class="material-symbols-outlined">headset_mic</span> Soporte
+</a>
+
+<a href="Contáctenos.html">
+  <span class="material-symbols-outlined">mail</span> Contacto
+</a>
+
+    </div>
+  </header>
+  <div id="preloader"><div class="loader"><div class="spinner"></div><div class="bar"><span></span></div><div class="label">Cargando…</div></div></div>
+  <div id="progress"></div>
+
+  <main class="section">
+    <div class="container contact">
+      <div>
+        <div class="contact-card reveal">
+          <h1 class="title" style="margin-top:0">Contáctenos</h1>
+          <p class="lead">Atención técnica y cotizaciones.</p>
+          <ul style="list-style:none;padding-left:0;display:grid;gap:6px">
+            <li><strong>Teléfono📞:</strong> <span class="js-phone"></span></li>
+            <li><strong>WhatsApp:</strong> <a class="js-wa" target="_blank" rel="noopener" style="color: #25D366;">Abrir chat</a></li>
+            <li><strong>Dirección:</strong> <span class="js-address"></span></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/partes_electromecanicas_panama/" target="_blank" style="color: #c13584;">Ver perfil</a></li>
+          </ul>
+        </div>
+
+        <div class="contact-card reveal" style="margin-top:18px">
+          <form id="contact-form" class="form" novalidate>
+            <input class="input input-full" type="text" name="nombre" placeholder="Nombre">
+            <input class="input input-full" type="email" name="email" placeholder="Correo">
+            <textarea class="input input-full" name="mensaje" placeholder="Mensaje"></textarea>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn btn-primary" type="submit">Enviar</button>
+              <a class="btn btn-outline js-wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a><a class="btn btn-outline js-ig" target="_blank" rel="noopener">
+Instagram</a>
+            </div>
+            <p id="form-status" class="note"></p>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-card reveal">
+          <img loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/product-fallback.jpg';" src="assets/storefront.jpg" alt="Fachada IMPEL Panamá" style="border-radius:12px;margin-bottom:12px">
+          <iframe title="Mapa IMPEL Panamá" width="100%" height="260" style="border:0;border-radius:12px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Importadora%20de%20Partes%20Electromec%C3%A1nicas%20Panam%C3%A1&output=embed"></iframe>
+        </div>
+
+        
+      </div>
+    </div>
+  </main>
+
+  <p>© <span id="year"></span> IMPEL Panamá · Todos los derechos reservados</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
