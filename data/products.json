@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Alternador Toyota Corolla 1.8L (2009–2013) 12V 100A",
+    "ref": "ALT-TY-1.8-100A",
+    "cat": "Alternadores",
+    "img": "alt-corolla.jpg",
+    "brand": "Toyota",
+    "stock": "stock",
+    "warranty": 3,
+    "desc": "Pieza alternadores probada y verificada. Calidad profesional.",
+    "compat": [
+      "Corolla"
+    ],
+    "oem": [
+      "ALT-TY-1.8-100A"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Alternador Kia Rio 1.4L (2012–2017) 12V 90A",
+    "ref": "ALT-KIA-1.4-90A",
+    "cat": "Alternadores",
+    "img": "alt-kia-rio.jpg",
+    "brand": "Kia",
+    "stock": "stock",
+    "warranty": 3,
+    "desc": "Pieza alternadores probada y verificada. Calidad profesional.",
+    "compat": [
+      "Rio"
+    ],
+    "oem": [
+      "ALT-KIA-1.4-90A"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Alternador Hyundai Accent 1.6L (2011–2017) 12V 110A",
+    "ref": "ALT-HYU-1.6-110A",
+    "cat": "Alternadores",
+    "img": "alt-accent.jpg",
+    "brand": "Hyundai",
+    "stock": "bajo_pedido",
+    "warranty": 3,
+    "desc": "Pieza alternadores probada y verificada. Calidad profesional.",
+    "compat": [
+      "Accent"
+    ],
+    "oem": [
+      "ALT-HYU-1.6-110A"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Motor de Arranque Toyota Hilux 2.7L (2012–2015) 12V 1.4kW",
+    "ref": "STA-HIL-27-14",
+    "cat": "Arranques",
+    "img": "sta-hilux.jpg",
+    "brand": "Toyota",
+    "stock": "stock",
+    "warranty": 3,
+    "desc": "Pieza arranques probada y verificada. Calidad profesional.",
+    "compat": [
+      "Hilux"
+    ],
+    "oem": [
+      "STA-HIL-27-14"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Motor de Arranque Nissan Sentra 1.8L (2007–2012) 12V 1.2kW",
+    "ref": "STA-SEN-18-12",
+    "cat": "Arranques",
+    "img": "sta-sentra.jpg",
+    "brand": "Nissan",
+    "stock": "stock",
+    "warranty": 3,
+    "desc": "Pieza arranques probada y verificada. Calidad profesional.",
+    "compat": [
+      "Sentra"
+    ],
+    "oem": [
+      "STA-SEN-18-12"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Bobina de Encendido Chevrolet Aveo 1.6L (2009–2016) 4 pines",
+    "ref": "COIL-AVEO-4P",
+    "cat": "Bobinas",
+    "img": "coil-aveo.jpg",
+    "brand": "Chevrolet",
+    "stock": "bajo_pedido",
+    "warranty": 1,
+    "desc": "Pieza bobinas probada y verificada. Calidad profesional.",
+    "compat": [
+      "Aveo"
+    ],
+    "oem": [
+      "COIL-AVEO-4P"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Bobina de Encendido Toyota Yaris 1.5L (2006–2012) OEM",
+    "ref": "COIL-YAR-15-OEM",
+    "cat": "Bobinas",
+    "img": "coil-yaris.jpg",
+    "brand": "Toyota",
+    "stock": "stock",
+    "warranty": 1,
+    "desc": "Pieza bobinas probada y verificada. Calidad profesional.",
+    "compat": [
+      "Yaris"
+    ],
+    "oem": [
+      "COIL-YAR-15-OEM"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Módulo de Ignición GM HEI 4 pines",
+    "ref": "MOD-GM-HEI4",
+    "cat": "Módulos",
+    "img": "mod-gm-hei4.jpg",
+    "brand": "GM",
+    "stock": "stock",
+    "warranty": 1,
+    "desc": "Pieza módulos probada y verificada. Calidad profesional.",
+    "compat": [],
+    "oem": [
+      "MOD-GM-HEI4"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Sensor Cigüeñal Nissan Versa 1.6L (2007–2012)",
+    "ref": "SEN-CRK-VER-16",
+    "cat": "Sensores",
+    "img": "sen-crk-versa.jpg",
+    "brand": "Nissan",
+    "stock": "bajo_pedido",
+    "warranty": 1,
+    "desc": "Pieza sensores probada y verificada. Calidad profesional.",
+    "compat": [
+      "Versa"
+    ],
+    "oem": [
+      "SEN-CRK-VER-16"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Sensor Árbol de Levas Toyota Corolla 1.8L (2009–2013)",
+    "ref": "SEN-CAM-COR-18",
+    "cat": "Sensores",
+    "img": "sen-cam-corolla.jpg",
+    "brand": "Toyota",
+    "stock": "stock",
+    "warranty": 1,
+    "desc": "Pieza sensores probada y verificada. Calidad profesional.",
+    "compat": [
+      "Corolla"
+    ],
+    "oem": [
+      "SEN-CAM-COR-18"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Rectificador Alternador Denso 12V",
+    "ref": "REC-DEN-12V",
+    "cat": "Partes internas",
+    "img": "rec-denso.jpg",
+    "brand": "Denso",
+    "stock": "stock",
+    "warranty": 1,
+    "desc": "Pieza partes internas probada y verificada. Calidad profesional.",
+    "compat": [],
+    "oem": [
+      "REC-DEN-12V"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Bendix Motor de Arranque Hyundai Elantra 1.8L",
+    "ref": "BND-ELAN-18",
+    "cat": "Bendix",
+    "img": "bnd-elantra.jpg",
+    "brand": "Hyundai",
+    "stock": "bajo_pedido",
+    "warranty": 1,
+    "desc": "Pieza bendix probada y verificada. Calidad profesional.",
+    "compat": [
+      "Elantra"
+    ],
+    "oem": [
+      "BND-ELAN-18"
+    ]
+  }
+]

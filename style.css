@@ -30,7 +30,43 @@ a{color:var(--secondary);text-decoration:none}
 
 /* Hero */
 .hero{position:relative}
-.hero .bg{background:url('assets/storefront.jpg') center/cover no-repeat;height:440px;filter:brightness(.92)}
+.hero .bg {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+}
+
+/* Capa 1 — primera imagen */
+.hero .bg::before,
+.hero .bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: crossfade 16s infinite;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Primera imagen */
+.hero .bg::before {
+  background-image: url('assets/storefront.jpg');
+  animation-delay: 0s;
+}
+
+/* Segunda imagen */
+.hero .bg::after {
+  background-image: url('assets/local-impel.jpg');
+  animation-delay: 8s;
+}
+
+/* Animación de cruce */
+@keyframes crossfade {
+  0%, 45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+
 .hero .overlay{position:relative;margin-top:-240px;padding:0 0 40px}
 .hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
 .kicker {
@@ -774,9 +810,593 @@ a.btn-ig, .btn-ig{ background:#fff; color:#111; }
   letter-spacing: 0.2px;
 }
 
+/* === Animaciones suaves para secciones y textos === */
+.reveal.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.reveal.fade-in.show {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.zoom-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+.reveal.zoom-in.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal.slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.7s ease;
+}
+.reveal.slide-left.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* === Movimiento lento del fondo del hero === */
+.hero .bg {
+  background: url('assets/storefront.jpg') center/cover no-repeat;
+  height: 440px;
+  filter: brightness(0.9);
+  animation: slowPan 22s ease-in-out infinite alternate;
+}
+
+@keyframes slowPan {
+  from { background-position: center top; }
+  to { background-position: center bottom; }
+}
+
+/* === Efecto flotante en íconos del menú === */
+.nav a span.material-symbols-outlined {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.nav a:hover span.material-symbols-outlined {
+  transform: translateY(-3px);
+  color: var(--primary);
+}
+
+/* === Aparición progresiva del hero card === */
+.hero-card {
+  animation: fadeUp 1s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Sombra dinámica al pasar sobre las tarjetas === */
+.card, .contact-card, .product {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover, .contact-card:hover, .product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+}
+
+.hero .overlay {
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+}
 
 
+/* === Header CTA: Cómo llegar + burbuja === */
+.header-cta{
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1200;
+  pointer-events: none; /* por defecto pausa interacción del contenedor, el enlace sigue activo */
+}
+.header-cta .btn-where{
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight:800;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  transform: translateY(0);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
 
+/* efecto hover */
+.header-cta .btn-where:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+}
+
+/* tamaño responsivo */
+@media (max-width: 920px){
+  .header-cta{ right: 12px; top: 10px; }
+  .header-cta .btn-where{ padding: 10px; }
+}
+
+/* burbuja informativa */
+.howto-bubble{
+  pointer-events: auto;
+  background: linear-gradient(180deg, rgba(2,6,23,0.94), rgba(2,6,23,0.88));
+  color: #fff;
+  font-weight:700;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(2,6,23,0.18);
+  opacity: 0;
+  transform: translateY(-6px) scale(.98);
+  transition: opacity .35s ease, transform .35s ease;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* mostrar la burbuja cuando la clase visible esté presente */
+.howto-bubble.visible{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* esconder el CTA en tamaños muy pequeños (si quieres) */
+@media (max-width:420px){
+  .header-cta{ display: none; }
+}
+
+/* === Drawer (menú móvil con iconos) === */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  display: flex;
+  pointer-events: none;
+}
+
+.drawer .backdrop {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.drawer .panel {
+  width: 260px;
+  background: #fff;
+  padding: 28px 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-weight: 600;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+  border-radius: 0 20px 20px 0;
+}
+
+.drawer.open {
+  pointer-events: all;
+}
+.drawer.open .backdrop {
+  opacity: 1;
+}
+.drawer.open .panel {
+  transform: translateX(0);
+}
+
+.drawer .panel a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  transition: color 0.2s ease;
+}
+
+.drawer .panel a:hover {
+  color: #f97316;
+}
+
+.drawer .panel .material-symbols-outlined {
+  font-size: 22px;
+  color: #f97316;
+}
+
+/* ==== Servicios moderno con iconos ==== */
+.servicios {
+  text-align: center;
+  padding: 80px 0;
+  background: #f9fafb;
+}
+
+.servicios .subtext {
+  color: #444;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.servicios .subtext .material-symbols-outlined {
+  color: #f97316;
+  vertical-align: middle;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.servicio-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 25px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  cursor: default;
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(249, 115, 22, 0.25);
+  background: #b91f1f;
+}
+
+.servicio-card h3 {
+  color: #111;
+  margin: 16px 0 10px;
+  font-size: 1.2rem;
+}
+
+.servicio-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffa34a, #f97316);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e27815;
+  font-size: 40px;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card:hover .icon-box {
+  transform: rotate(8deg) scale(1.1);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.45);
+}
+
+/* ==== Animación al aparecer ==== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==== Sección Servicios Moderna ==== */
+.servicios {
+  text-align: center;
+  padding: 100px 0;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+}
+
+.servicios h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.servicios .subtext {
+  color: #475569;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.servicios .subtext .material-symbols-outlined {
+  color: #f97316;
+  vertical-align: middle;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.servicio-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px 25px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.servicio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 138, 52, 0.08), rgba(0, 43, 92, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.servicio-card:hover::before {
+  opacity: 1;
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(249, 115, 22, 0.25);
+}
+
+.servicio-card h3 {
+  margin: 18px 0 10px;
+  color: #111;
+  font-weight: 700;
+}
+
+.servicio-card p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.icon-box {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffa34a, #f97316);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 46px;
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.servicio-card:hover .icon-box {
+  transform: rotate(8deg) scale(1.1);
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.45);
+}
+
+/* ==== Animación Fade-up ==== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.asistencia {
+  background: linear-gradient(90deg, #0d57c5, #f38302);
+  color: #fff !important;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+}
+.asistencia:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.35);
+}
+
+/* === FIX FINAL: Hero clics bloqueados === */
+.hero {
+  position: relative;
+}
+
+.hero .bg,
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero .bg {
+  z-index: 1;
+}
+
+.hero .overlay {
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+  z-index: 2;
+  pointer-events: none; /* 🔥 deja pasar los clics */
+}
+
+/* Hero contenido (texto, botones, etc.) */
+.hero .container,
+.hero .hero-card {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* Botones dentro del hero */
+.hero .hero-card a {
+  z-index: 4;
+  pointer-events: auto;
+}
+
+/* === FIX: Hero se corta por position absolute === */
+.hero {
+  position: relative;
+  min-height: 480px; /* 👈 Ajusta según tu diseño */
+  display: flex;
+  align-items: center;
+}
+
+.hero .bg,
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px; /* añade respiración interna */
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 400px;
+    padding-top: 60px;
+  }
+}
+
+/* Opción B: dejar background-size:cover pero aumentar la altura del hero */
+.hero { 
+  min-height: 680px; /* aumenta para mostrar más de la imagen; ajusta 480/560/720 según necesidad */
+  display: flex;
+  align-items: center;
+}
+
+/* Mantener cover para que no deje espacios en los lados */
+.hero .bg::before,
+.hero .bg::after {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-width: 1024px) {
+  .hero { min-height: 520px; }
+}
+@media (max-width: 720px) {
+  .hero { min-height: 420px; padding-top: 40px; padding-bottom: 40px; }
+}
+
+/* === HERO SECCIÓN FINAL === */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh; /* ocupa casi toda la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Fondo principal */
+.hero .bg {
+  position: absolute;
+  inset: 0;
+  background: url("images/hero-bg.jpg") center center / cover no-repeat;
+  z-index: 1;
+}
+
+/* Capa oscura semitransparente */
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Contenido encima del fondo */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: left;
+}
+
+/* Tarjeta principal */
+.hero-card {
+  background: rgba(0,0,0,0.4);
+  border-radius: 18px;
+  padding: 40px 32px;
+  backdrop-filter: blur(8px);
+  color: #fff;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Botones */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.hero-buttons .btn {
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 12px 20px;
+}
+
+/* Botón naranja */
+.btn.btn-primary {
+  background: #f38302;
+  color: #fff !important;
+  border: none;
+}
+
+/* Botón azul (Asistencia) */
+.btn.asistencia {
+  background: #0d57c5;
+  color: #fff !important;
+  border: none;
+}
+
+/* Adaptable a móvil */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+  }
+  .hero-card {
+    padding: 30px 24px;
+    text-align: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+}
 
 
 

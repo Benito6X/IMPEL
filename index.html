@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- Banner Asistencia Vial -->
+<a href="https://wa.me/50762838021?text=Hola,%20necesito%20asistencia%20vial"
+   target="_blank"
+   class="banner-asistencia">
+  <span class="material-symbols-outlined icono">two_wheeler</span>
+  <div class="texto">
+    <div class="titulo">ASISTENCIA VIAL</div>
+    <div class="telefono">6283-8021</div>
+  </div>
+</a>
+
+<!-- Importar Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+<style>
+.banner-asistencia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(90deg, #0d57c5, #14448b, #f38302ff);
+  color: white;
+  padding: 20px 0; /* más alto */
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.banner-asistencia:hover {
+  background: linear-gradient(90deg, #1e40af, #1d4ed8, #1e40af);
+}
+
+.banner-asistencia .icono {
+  font-size: 48px; /* icono más grande */
+  margin-right: 16px;
+}
+
+.banner-asistencia .texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.banner-asistencia .titulo {
+  font-size: 18px; /* más grande */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.banner-asistencia .telefono {
+  font-size: 28px; /* número grande y visible */
+  font-weight: 800;
+}
+</style>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMPEL Panamá — Partes Electromecánicas</title>
+  <meta name="description" content="Repuestos y reparación: alternadores, arranques, bobinas, módulos y sensores para marcas líderes." />
+  <meta property="og:title" content="IMPEL Panamá" />
+  <meta property="og:description" content="Estándar profesional en partes electromecánicas." />
+  <meta property="og:image" content="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body class="theme-light">
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="6" width="18" height="2" rx="1"></rect>
+          <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+          <rect x="3" y="16" width="18" height="2" rx="1"></rect>
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="index.html" class="brand" aria-label="IMPEL Panamá">
+        <img src="assets/logo.png" alt="Logo IMPEL Panamá" />
+      </a>
+
+
+      <p id="open-status"></p>
+
+<script>
+function actualizarHorario() {
+  const elemento = document.getElementById("open-status");
+  if (!elemento) return;
+
+  const ahora = new Date();
+  const zona = "America/Panama";
+  const hora = parseInt(ahora.toLocaleString("en-US", { hour: "numeric", hour12: false, timeZone: zona }));
+  const dia = ahora.toLocaleString("en-US", { weekday: "short", timeZone: zona });
+
+  let abierto = false;
+  let textoExtra = "";
+
+  // Horarios: Lunes–Viernes 8–17, Sábado 8–15
+  if (["Mon", "Tue", "Wed", "Thu", "Fri"].includes(dia)) {
+    abierto = hora >= 8 && hora < 17;
+    if (!abierto) {
+      if (hora < 8) textoExtra = "· Hasta 8 a.m. (PA)";
+      else textoExtra = "· Hasta 8 a.m. (PA)";
+    }
+  } else if (dia === "Sat") {
+    abierto = hora >= 8 && hora < 15;
+    if (!abierto) {
+      if (hora < 8) textoExtra = "· Hasta. (PA)";
+      else textoExtra = "· abre el lunes a las 8 a.m. (PA)";
+    }
+  } else {
+    // Domingo
+    textoExtra = "· Hastas 8 a.m. (PA)";
+  }
+
+  const icono = `<span class="material-symbols-outlined" style="font-size:20px;vertical-align:middle;margin-right:4px;">schedule</span>`;
+  if (abierto) {
+    elemento.innerHTML = `${icono}<span style="color:#16a34a;font-weight:600;">Abierto</span>`;
+  } else {
+    elemento.innerHTML = `${icono}<span style="color:#dc2626;font-weight:600;">Cerrado</span> <span style="color:#6b7280;">${textoExtra}</span>`;
+  }
+}
+
+// Ejecutar y actualizar cada 30 s
+document.addEventListener("DOMContentLoaded", actualizarHorario);
+setInterval(actualizarHorario, 30000);
+</script>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html#inicio"><span class="material-symbols-outlined">home</span> Inicio</a>
+        <a href="catalogo.html"><span class="material-symbols-outlined">inventory_2</span> Catálogo</a>
+        <a href="Nosotros.html"><span class="material-symbols-outlined">build</span> Nosotros</a>
+        <a href="Contáctenos.html"><span class="material-symbols-outlined">mail</span> Contacto</a>
+      </nav>
+
+  <a href="https://www.google.com/maps?ll=9.015272,-79.498612&z=15&t=m&hl=es-419&gl=US&mapclient=embed&cid=9754083704122161458"
+   target="_blank"
+   rel="noopener"
+   class="btn btn-primary btn-hero">
+   <span class="material-symbols-outlined" style="font-size:20px;vertical-align:middle;margin-right:6px;">near_me</span>
+   Cómo llegar
+</a>
+
+    </div>
+  </header>
+
+ <!-- Drawer para menú móvil -->
+<div id="drawer" class="drawer">
+  <div class="backdrop" data-drawer-close></div>
+  <aside class="panel">
+    <a href="index.html#inicio">
+      <span class="material-symbols-outlined">home</span>
+      Inicio
+    </a>
+    <a href="catalogo.html">
+      <span class="material-symbols-outlined">inventory_2</span>
+      Catálogo
+    </a>
+    <a href="Nosotros.html">
+      <span class="material-symbols-outlined">build</span>
+      Nosotros
+    </a>
+    <a href="Contáctenos.html">
+      <span class="material-symbols-outlined">mail</span>
+      Contacto
+      <a href="https://www.google.com/maps?ll=9.015272,-79.498612&z=15&t=m&hl=es-419&gl=US&mapclient=embed&cid=9754083704122161458" 
+       target="_blank" 
+       rel="noopener">
+      <span class="material-symbols-outlined">near_me</span>
+      Cómo llegar
+
+
+  </aside>
+</div>
+
+
+  <!-- ===== HERO ===== -->
+  <main>
+<style>
+  .resaltado {
+    color: #1c9727;
+    font-weight: bold;
+  }
+</style>
+
+</script>
+
+<section class="hero">
+  <div class="bg" role="img" aria-label="Fachada de IMPEL Panamá"></div>
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-card reveal fade-in">
+      <div class="kicker">Expertos en Electromecánica</div>
+      <h1>Partes electromecánicas — ventas, mantenimientos y reparación</h1>
+      <p>
+        Reparaciones de aires, alternadores, motores de arranque, bobinas, luces y sensores.
+        <span class="resaltado">Soporte técnico y garantía.</span>
+      </p>
+      <p class="status-text">
+        <span id="open-status"></span>
+      </p>
+
+        <!-- Estado del horario con fondo translúcido -->
+<div id="open-status" class="estado-horario"></div>
+
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+<style>
+.estado-horario {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px; /* forma de cápsula */
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15); /* fondo translúcido */
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Colores dinámicos */
+.estado-horario.abierto {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
+}
+
+.estado-horario.cerrado {
+  background: rgba(220, 38, 38, 0.15);
+  color: #dc2626;
+}
+
+.estado-horario .material-symbols-outlined {
+  font-size: 22px;
+}
+</style>
+
+<script>
+function actualizarHorario() {
+  const estadoEl = document.getElementById("open-status");
+  if (!estadoEl) return;
+
+  const ahora = new Date();
+  const zona = "America/Panama";
+  const horaLocal = new Date(ahora.toLocaleString("en-US", { timeZone: zona }));
+  const hora = horaLocal.getHours();
+  const minutos = horaLocal.getMinutes().toString().padStart(2, "0");
+  const periodo = hora >= 12 ? "p. m." : "a. m.";
+  const hora12 = ((hora + 11) % 12 + 1);
+
+  const icono = `<span class="material-symbols-outlined">schedule</span>`;
+  let mensaje = "";
+  let clase = "";
+
+  if (hora >= 8 && hora < 17) {
+    mensaje = `<strong>Abierto</strong> · ${hora12}:${minutos} ${periodo} (PA)`;
+    clase = "abierto";
+  } else {
+    mensaje = `<strong>Cerrado</strong> · ${hora12}:${minutos} ${periodo} (PA)`;
+    clase = "cerrado";
+  }
+
+  estadoEl.className = `estado-horario ${clase}`;
+  estadoEl.innerHTML = `${icono} ${mensaje}`;
+}
+
+document.addEventListener("DOMContentLoaded", actualizarHorario);
+setInterval(actualizarHorario, 30000);
+</script>
+
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary js-wa" target="_blank" rel="noopener">
+          Cotizar por WhatsApp
+        </a>
+        <a
+          class="btn asistencia"
+          href="https://www.google.com/maps?ll=9.015272,-79.498612&z=15&t=m&hl=es-419&gl=US&mapclient=embed&cid=9754083704122161458"
+          target="_blank"
+          rel="noopener"
+        >
+          Asistencia Vial
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+
+    </section>
+
+  <!-- === NUEVAS TARJETAS DE SERVICIO === -->
+<section class="servicios">
+  <div class="card-servicio" onclick="window.location.href='catalogo.html'">
+    <span class="material-symbols-outlined">storefront</span>
+    <h3>Venta de repuestos</h3>
+    <p>Inventario especializado y soporte en compatibilidad.</p>
+  </div>
+
+  <div class="card-servicio" onclick="window.location.href='Nosotros.html'">
+    <span class="material-symbols-outlined">build</span>
+    <h3>Conócenos</h3>
+    <p>Contamos con un equipo técnico capacitado y repuestos de calidad para asegurar el mejor rendimiento y durabilidad en cada trabajo.</p>
+  </div>
+
+  <div class="card-servicio" onclick="window.location.href='diagnostico.html'">
+    <span class="material-symbols-outlined">analytics</span>
+    <h3>Diagnóstico</h3>
+    <p>Equipos para verificación de fallas y evaluación técnica.</p>
+  </div>
+</section>
+
+<style>
+.servicios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* === Tarjeta animada === */
+.card-servicio {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 30px 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Borde animado tipo gradiente */
+.card-servicio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(120deg, #0d57c5, #f38302, #0d57c5);
+  background-size: 300% 300%;
+  animation: bordeGradiente 5s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes bordeGradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ícono superior */
+.card-servicio .material-symbols-outlined {
+  font-size: 36px;
+  color: #e67e07;
+  margin-bottom: 12px;
+}
+
+/* Texto */
+.card-servicio h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.card-servicio p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+/* Efecto táctil (móvil) */
+.card-servicio:active {
+  transform: scale(0.96);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* === Responsivo === */
+@media (max-width: 768px) {
+  .servicios {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-servicio {
+    width: 90%;
+  }
+}
+</style>
+
+
+    <section id="galeria-ig" class="section">
+      <div class="container">
+        <h2 class="title">Novedades de Instagram</h2>
+        <div class="grid">
+          <img class="gallery-img" src="assets/ig/ig1.jpg" alt="IG 1" loading="lazy" decoding="async">
+          <img class="gallery-img" src="assets/ig/ig2.jpg" alt="IG 2" loading="lazy" decoding="async">
+          <img class="gallery-img" src="assets/ig/ig3.jpg" alt="IG 3" loading="lazy" decoding="async">
+          <img class="gallery-img" src="assets/ig/ig4.jpg" alt="IG 4" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+  © 2025 · <span style="color:#f38302; font-weight:600;"> IMPEL Panamá </span> · Todos los derechos reservados
+</div>
+  </footer>
+
+  <!-- Script inline para actualizar año -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+ <!-- 🔹 Botón flotante de WhatsApp -->
+<a href="https://wa.me/50762838021"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chatear por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">

@@ -1,0 +1,165 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMPEL Panamá — Mantenimiento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #0d57c5, #f38302);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 420px;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+      position: relative;
+      animation: fadeIn 1.2s ease both;
+    }
+
+    .icon {
+      font-size: 80px;
+      color: #fff;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 20px;
+    }
+
+    .image {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      margin-bottom: 18px;
+      opacity: 0.95;
+    }
+
+    .contact-btn,
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn {
+      background: #25d366;
+      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3);
+      margin-bottom: 12px;
+    }
+
+    .contact-btn:hover {
+      background: #1eb75f;
+      transform: translateY(-2px);
+    }
+
+    .home-btn {
+      background: #0d57c5;
+      box-shadow: 0 6px 12px rgba(221, 121, 8, 0.877);
+    }
+
+    .home-btn:hover {
+      background: #0b4da9;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
+        padding: 24px 16px;
+      }
+      .title {
+        font-size: 22px;
+      }
+      .subtitle {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="material-symbols-outlined icon">engineering</span>
+    <h1 class="title">Página en Mantenimiento</h1>
+    <p class="subtitle">
+      Estamos trabajando en una nueva experiencia para ti.  
+      Vuelve pronto o contáctanos por WhatsApp si necesitas asistencia.
+    </p>
+
+    <img class="image" src="https://lh3.googleusercontent.com/p/AF1QipO-iwlQ4_cHYIAqocRku5ppGCCCFrwkyhHn20UU=w600" alt="IMPEL Panamá Taller">
+
+    <a href="https://wa.me/50762838021?text=Hola,%20necesito%20ayuda%20mientras%20la%20página%20está%20en%20mantenimiento"
+       class="contact-btn" target="_blank" rel="noopener">
+       <span class="material-symbols-outlined">whatsapp</span>
+       Contactar por WhatsApp
+    </a>
+
+    <!-- NUEVO BOTÓN PARA VOLVER AL INICIO -->
+    <a href="index.html" class="home-btn">
+      <span class="material-symbols-outlined">home</span>
+      Volver al Inicio
+    </a>
+
+    <div class="footer">
+      © 2025 <span style="color:#f38302;font-weight:600;">· IMPEL Panamá ·</span> Todos los derechos reservados
+    </div>
+  </div>
+
+</body>
+</html>
